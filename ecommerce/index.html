@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ecommerce Analytics | Finrows</title>
+<meta name="description" content="Finrows turns your clients' Shopify exports into branded retention and profit reports: net revenue after refunds, at-risk VIP customers, and new-customer trends. First report free.">
+<meta property="og:title" content="Finrows | White-label retention & profit reports">
+<meta property="og:description" content="Branded store-health reports for Klaviyo and Shopify agencies. First report free.">
+<meta property="og:image" content="https://alikhokharak.github.io/finrows-store-report/monthly_sales.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f2a44'/><rect x='7' y='17' width='4' height='8' rx='1' fill='%2334d399'/><rect x='14' y='12' width='4' height='13' rx='1' fill='%2334d399'/><rect x='21' y='7' width='4' height='18' rx='1' fill='%2334d399'/></svg>">
+<style>
+:root{--ink:#0f2a44;--ink2:#334a63;--muted:#5d6f82;--line:#e3e9ef;--bg:#f7f9fb;--mint:#10b981;--mint2:#d1fae5;--amber:#f59e0b;--red:#e11d48}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+.logo svg{width:28px;height:28px}
+.navlinks{display:flex;gap:26px;align-items:center;font-size:15px}
+.navlinks a{text-decoration:none;color:var(--ink2)}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:#fff!important;text-decoration:none;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.mint{background:var(--mint)}
+.btn.ghost{background:transparent;color:var(--ink)!important;border:1.5px solid var(--line)}
+.navlinks .btn{padding:9px 16px}
+header{padding:84px 0 64px;background:linear-gradient(180deg,#f0fdf8 0%,#fff 100%)}
+.tag{display:inline-block;background:var(--mint2);color:#065f46;font-weight:600;font-size:13px;padding:5px 12px;border-radius:99px;margin-bottom:18px}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.08;letter-spacing:-.03em;max-width:820px}
+h1 span{color:var(--mint)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--ink2);max-width:680px;margin:20px 0 30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.small{font-size:14px;color:var(--muted);margin-top:14px}
+section{padding:72px 0}
+h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+.sub{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:36px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff}
+.stat b{display:block;font-size:34px;letter-spacing:-.02em;line-height:1.1}
+.stat p{font-size:14.5px;color:var(--ink2);margin-top:8px}
+.up{color:var(--mint)}.down{color:var(--red)}.warn{color:var(--amber)}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+.grey{background:var(--bg)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
+.card .ic{width:40px;height:40px;border-radius:10px;background:var(--mint2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:var(--ink2);font-size:15.5px}
+.shots{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:8px}
+.shots figure{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.shots img{width:100%;display:block}
+.shots figcaption{font-size:13.5px;color:var(--muted);padding:10px 14px;border-top:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{border-top:3px solid var(--mint);padding-top:18px}
+.step::before{counter-increment:s;content:"0" counter(s);font-weight:800;color:var(--mint);font-size:14px;letter-spacing:.05em}
+.step h3{font-size:19px;margin:6px 0}
+.step p{color:var(--ink2);font-size:15.5px}
+.offer{background:var(--ink);color:#fff;border-radius:20px;padding:48px;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+.offer h2{color:#fff}
+.offer p{color:#c9d6e3;font-size:16.5px}
+.offer ul{list-style:none}
+.offer li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#e6edf4;font-size:15.5px}
+.offer li::before{content:"✓";color:var(--mint);font-weight:800;margin-right:10px}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.who p{color:var(--ink2);font-size:16px;margin-bottom:12px}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{font-weight:600;cursor:pointer;font-size:16.5px;list-style:none}
+.faq summary::after{content:"+";float:right;color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--ink2);margin-top:8px;font-size:15.5px}
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:820px){
+ .navlinks a:not(.btn){display:none}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .cards,.steps,.shots,.offer,.who{grid-template-columns:1fr}
+ .offer{padding:30px}
+ header{padding:56px 0 44px}
+ section{padding:54px 0}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+ <a class="logo" href="../"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#0f2a44"/><rect x="7" y="17" width="4" height="8" rx="1" fill="#34d399"/><rect x="14" y="12" width="4" height="13" rx="1" fill="#34d399"/><rect x="21" y="7" width="4" height="18" rx="1" fill="#34d399"/></svg>Finrows</a>
+ <div class="navlinks">
+  <a href="../">All services</a>
+  <a href="../">All services</a>
+  <a href="#report">What you get</a>
+  <a href="#how">How it works</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn" href="#offer">First report free</a>
+ </div>
+</div></nav>
+
+<header><div class="wrap">
+ <span class="tag">For Klaviyo &amp; Shopify agencies</span>
+ <h1>White-label retention &amp; profit reports your clients <span>actually read</span>.</h1>
+ <p class="lead">Send us a client's Shopify order export. We send back a branded report: net revenue after refunds, at-risk VIP customers, and where new-customer growth is slipping. You present it under your name.</p>
+ <div class="ctas">
+  <a class="btn mint" href="mailto:alikhokhar.ak1012@gmail.com?subject=Free%20Finrows%20report">Get your first report free</a>
+  <a class="btn ghost" href="https://alikhokharak.github.io/finrows-store-report/" target="_blank" rel="noopener">See a sample report →</a>
+ </div>
+ <p class="small">No logins or API access needed. Just a CSV export.</p>
+</div></header>
+
+<section><div class="wrap">
+ <h2>The story your dashboard hides</h2>
+ <p class="sub">From our sample report on a public UK online-retail dataset (1M+ transaction rows, 2009–2011). Sales looked healthy. The customer base didn't.</p>
+ <div class="stats">
+  <div class="stat"><b class="up">+6.1%</b><p>Net sales, year on year. Looks fine on the surface.</p></div>
+  <div class="stat"><b class="down">−37.3%</b><p>New customers in Jul–Nov vs the year before.</p></div>
+  <div class="stat"><b class="warn">416</b><p>At-risk VIPs: avg 9 orders, gone quiet ~105 days. Win back 20% ≈ £18k/month.</p></div>
+  <div class="stat"><b>60.3%</b><p>Of revenue came from the top 10% of customers.</p></div>
+ </div>
+ <p class="note">Public dataset, not a client. Every number is reproducible from the open code.</p>
+</div></section>
+
+<section class="grey" id="report"><div class="wrap">
+ <h2>What's in every report</h2>
+ <p class="sub">Four questions every store owner should be able to answer, in plain English with charts.</p>
+ <div class="cards">
+  <div class="card"><div class="ic">£</div><h3>Real revenue, after refunds</h3><p>Net sales, order count and AOV, year on year. Refund rate and the products leaking the most money back out.</p></div>
+  <div class="card"><div class="ic">★</div><h3>At-risk VIPs</h3><p>Your client's best customers who've gone quiet, with a ready-to-use list for a Klaviyo win-back flow and a £/$ estimate of what it's worth.</p></div>
+  <div class="card"><div class="ic">↗</div><h3>New-customer engine</h3><p>Is the store still finding new buyers, or living off old ones? Monthly first-purchase trend, flagged early.</p></div>
+  <div class="card"><div class="ic">◎</div><h3>Customer segments</h3><p>Champions, loyal, one-time, cooling off, lost. Who each group is, what they spend, and what to send them.</p></div>
+ </div>
+ <div class="shots" style="margin-top:22px">
+  <figure><img src="../monthly_sales.png" alt="Monthly net sales chart from the sample report" loading="lazy"><figcaption>Monthly sales, Dec 2009 – Nov 2011 (peak season highlighted)</figcaption></figure>
+  <figure><img src="../customer_groups.png" alt="Customer segment chart from the sample report" loading="lazy"><figcaption>Revenue by customer segment</figcaption></figure>
+ </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+ <h2>How it works</h2>
+ <p class="sub">Built for agencies that want a premium deliverable without adding headcount.</p>
+ <div class="steps">
+  <div class="step"><h3>Send the export</h3><p>Shopify &rarr; Orders &rarr; Export as CSV. That's it. No store or Klaviyo access.</p></div>
+  <div class="step"><h3>We build the report</h3><p>Cleaned, analysed and written up in 3 working days, with your logo and colours.</p></div>
+  <div class="step"><h3>You present it</h3><p>Web or PDF report plus 3–5 talking points and a win-back segment you can sell as the next campaign.</p></div>
+ </div>
+</div></section>
+
+<section id="offer"><div class="wrap">
+ <div class="offer">
+  <div>
+   <h2>Your first report is free</h2>
+   <p>Pick one client. If the report doesn't give you something worth saying in your next client call, you've lost nothing. After that: <b style="color:#fff">$149 per report</b>, or <b style="color:#fff">$399/month</b> for up to 5 client reports.</p>
+   <div class="ctas" style="margin-top:22px"><a class="btn mint" href="mailto:alikhokhar.ak1012@gmail.com?subject=Free%20Finrows%20report">Claim the free report</a></div>
+  </div>
+  <ul>
+   <li>White-label: your brand, not ours</li>
+   <li>3 working days turnaround</li>
+   <li>CSV export only, no logins</li>
+   <li>Client data deleted after delivery</li>
+   <li>Monthly or quarterly repeats available</li>
+  </ul>
+ </div>
+</div></section>
+
+<section class="grey"><div class="wrap who">
+ <div>
+  <h2>Who's behind Finrows</h2>
+ </div>
+ <div>
+  <p>I'm Ali Usman, a Business Data Analytics student (fintech track) at COMSATS University Islamabad. I started Finrows because most ecommerce reporting stops at "revenue went up", while the useful story sits in refunds, repeat buyers and who's quietly leaving.</p>
+  <p>Every report is built in Python and pandas, and the code behind the sample is public, so you can check exactly how each number was made.</p>
+  <p><a href="https://www.linkedin.com/in/ali-usman-5871b8342" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp; <a href="https://github.com/alikhokharak/finrows-store-report" target="_blank" rel="noopener">Sample report code on GitHub</a></p>
+ </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+ <h2>FAQ</h2>
+ <div class="faq">
+  <details><summary>Do you need access to our Shopify or Klaviyo accounts?</summary><p>No. A standard Shopify order export (CSV) is enough. We never ask for logins.</p></details>
+  <details><summary>Will our client know you made it?</summary><p>No. The report carries your agency's name and branding only.</p></details>
+  <details><summary>What happens to the data?</summary><p>It's used only to build that report and deleted after delivery. Happy to sign your NDA.</p></details>
+  <details><summary>Is the sample from a real client?</summary><p>No. It uses the public "Online Retail II" dataset of a UK gift-ware retailer, so it can be shared openly.</p></details>
+  <details><summary>How much does it cost?</summary><p>The first report is free. After that it's $149 per report, or $399 a month for up to 5 client reports (monthly or quarterly). Most agencies resell it to their client as a premium review.</p></details>
+  <details><summary>Which platforms do you support?</summary><p>Shopify first. WooCommerce and other platforms work too if they can export orders with customer IDs, dates, products and refunds.</p></details>
+ </div>
+</div></section>
+
+<footer><div class="wrap">
+ <span>© 2026 Finrows · Retention &amp; profit reports for ecommerce agencies</span>
+ <a href="mailto:alikhokhar.ak1012@gmail.com">alikhokhar.ak1012@gmail.com</a>
+</div></footer>
+
+</body>
+</html>
